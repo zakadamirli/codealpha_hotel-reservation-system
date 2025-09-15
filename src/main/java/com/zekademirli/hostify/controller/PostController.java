@@ -54,7 +54,7 @@ public class PostController {
         return postService.getAllPostsByPropertyId(propertyId);
     }
 
-    @DeleteMapping("/delete-post")
+    @DeleteMapping
     public void deletePostById(@RequestParam @NotNull @Positive Long userId,
                                @RequestParam @NotNull @Positive Long postId) {
         postService.deletePost(userId, postId);

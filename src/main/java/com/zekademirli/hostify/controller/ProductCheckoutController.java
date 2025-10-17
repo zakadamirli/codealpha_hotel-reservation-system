@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/product/v1")
+@RequestMapping("/api/v1/payments")
 public class ProductCheckoutController {
 
 
@@ -21,7 +21,7 @@ public class ProductCheckoutController {
         this.stripeService = stripeService;
     }
 
-    @PostMapping("/create-booking-session")
+    @PostMapping("/book")
     public ResponseEntity<StripeResponse> checkoutProducts(@RequestBody ProductRequest productRequest) {
         StripeResponse stripeResponse = stripeService.checkoutProducts(productRequest);
         return ResponseEntity

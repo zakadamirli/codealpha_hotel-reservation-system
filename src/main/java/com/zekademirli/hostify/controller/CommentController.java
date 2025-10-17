@@ -19,17 +19,17 @@ public class CommentController {
         this.commentService = commentService;
     }
 
-    @PostMapping("/addComment")
+    @PostMapping
     public AddCommentResponse addComment(@RequestBody AddCommentRequest addCommentRequest) {
         return commentService.addComment(addCommentRequest);
     }
 
-    @GetMapping("/getAllComments")
+    @GetMapping
     public List<CommentResponse> getAllComments() {
         return commentService.getAllComments();
     }
 
-    @GetMapping("/get-comment-by-comment-id/{commentId}")
+    @GetMapping("/{commentId}")
     public CommentResponse getOneComment(@PathVariable Long commentId) {
         return commentService.getOneComment(commentId);
     }

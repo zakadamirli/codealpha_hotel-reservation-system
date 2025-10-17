@@ -20,26 +20,26 @@ public class PostController {
 
     private final PostService postService;
 
-    @PostMapping("/addPost")
+    @PostMapping
     public AddPostResponse addPost(@RequestParam @NotNull @Positive Long userId,
                                    @RequestParam @NotNull @Positive Long propertyId) {
 
         return postService.addPost(userId, propertyId);
     }
 
-    @PutMapping("/update/{postId}")
+    @PutMapping("/{postId}")
     public UpdatePostResponse updatePost(@RequestParam @NotNull @Positive Long userId,
                                          @PathVariable @NotNull @Positive Long postId,
                                          @RequestParam @NotNull @Positive Long propertyId) {
         return postService.updatePost(userId, postId, propertyId);
     }
 
-    @GetMapping("/get-post-by-post-id/{postId}")
+    @GetMapping("/{postId}")
     public PostResponse getPostById(@PathVariable @NotNull @Positive Long postId) {
         return postService.getOnePostById(postId);
     }
 
-    @GetMapping("get-all-posts")
+    @GetMapping
     public List<PostResponse> getAllPosts() {
         return postService.getAllPosts();
     }

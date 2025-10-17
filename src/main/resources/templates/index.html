@@ -193,7 +193,7 @@
                     quantity
                 };
 
-                const response = await fetch("/api/product/v1/create-booking-session", {
+                const response = await fetch("/api/v1/payments/book", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"

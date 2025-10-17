@@ -49,13 +49,13 @@ public class ReservationController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/user/{userId}")
+    @GetMapping("/{userId}")
     public ResponseEntity<List<ReservationResponse>> getReservationsByUser(@PathVariable Long userId) {
         List<ReservationResponse> responses = reservationService.getReservationsByUser(userId);
         return ResponseEntity.ok(responses);
     }
 
-    @GetMapping("/property/{propertyId}")
+    @GetMapping("/get-property-reservation/{propertyId}")
     public ResponseEntity<List<ReservationResponse>> getReservationsByProperty(
             @PathVariable Long propertyId,
             @RequestParam Long hostId
@@ -64,7 +64,7 @@ public class ReservationController {
         return ResponseEntity.ok(responses);
     }
 
-    @GetMapping("/property/{propertyId}/active")
+    @GetMapping("/property/{propertyId}/is-active")
     public ResponseEntity<List<ReservationResponse>> getActiveReservationsByProperty(
             @PathVariable Long propertyId
     ) {
